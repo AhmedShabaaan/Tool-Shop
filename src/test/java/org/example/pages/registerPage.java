@@ -1,14 +1,14 @@
 package org.example.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class registerPage extends pageBase
 {
 
-
-    @FindBy(xpath = "//a[@data-test='register-link' and @routerlink='/auth/register' and text()='Register your account']")
+    @FindBy(xpath = "//a[@data-test='nav-sign-in' and @href='/auth/login' and contains(text(), 'Sign in')]")
+    public WebElement signin;
+    @FindBy(xpath = "//a[@data-test='register-link' and @href='/auth/register' and contains(text(), 'Register your account')]")
     public WebElement registerTab;
 
     @FindBy(id = "first_name")
@@ -44,7 +44,7 @@ public class registerPage extends pageBase
     @FindBy(id = "password")
     public WebElement  Password;
 
-    @FindBy(id = "registerBtn")
+    @FindBy(className = "btnSubmit")
     public WebElement RegisterBtn;
 
 }

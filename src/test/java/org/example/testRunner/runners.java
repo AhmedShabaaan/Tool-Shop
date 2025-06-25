@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
         (
                 features = "src/main/resources/features",
                 glue = "org.example.stepDefs",
-                tags = "@happyscenarios",
+                tags = "@regression",
                 plugin = {
                         "pretty",
                         "html:target/cucumber.html",

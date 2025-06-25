@@ -33,13 +33,14 @@ public class Hooks {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
-        driver.get("https://practicesoftwaretesting.com/auth/login");
+        driver.get("https://practicesoftwaretesting.com/");
     }
 
 
     @After
     public void closeBrowser() throws InterruptedException {
         Thread.sleep(3000);
+        driver.quit();
 
 
 

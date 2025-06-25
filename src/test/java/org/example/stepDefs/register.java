@@ -6,33 +6,46 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.registerPage;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
+
+import java.time.Duration;
+
+import static org.example.stepDefs.Hooks.driver;
 
 public class register {
     registerPage reg = new registerPage();
     @Given("user go to register page")
     public void gotorigister()
     {
-     reg.registerTab.click();
+        reg = new registerPage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        System.out.println("please wait until loginTab reload");
+        reg.signin.click();
+        wait.until(ExpectedConditions.elementToBeClickable(reg.registerTab));
+        reg.registerTab.click();
+
+
     }
 
     @When("user enter first and last name")
     public void userEnterFirstAndLastName() {
-        reg.FirstName.sendKeys("ahmed");
-        reg.LastName.sendKeys("Shabaan");
+        reg.FirstName.sendKeys("mohamed");
+        reg.LastName.sendKeys("ahmed");
     }
 
     @And("user enter date of birth")
     public void userEnterDateOfBirth() {
-        reg.BirthDate.sendKeys("01/01/1990");
+        reg.BirthDate.sendKeys("002001/01/01");
 
 
     }
 
     @And("user enter the street")
     public void userEnterTheStreet() {
-        reg.Street.sendKeys("Ibrahim Badway");
+        reg.Street.sendKeys("Ibrahim Broadway");
     }
 
     @And("user enter postal code")
@@ -71,18 +84,19 @@ public class register {
 
     @And("user enter password")
     public void userEnterPassword() {
-
-
-
-        reg.Password.sendKeys("P@ssWord1212");
+        reg.Password.sendKeys(configreader.get("password"));
     }
     @And("user click on register button")
     public void userClickOnRegisterButton() {
         reg.RegisterBtn.click();
     }
-
+    SoftAssert soft = new SoftAssert();
     @Then("account is created successfully")
     public void accountIsCreatedSuccessfully() {
+        String actual = reg.registerTab.getText().toLowerCase();
+        String expected = "Register your account";
+        soft.assertEquals(actual,expected.toLowerCase());
+        soft.assertAll();
     }
 
 

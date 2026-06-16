@@ -20,7 +20,7 @@ public class addToFavoraitePage {
     @FindBy(id = "menu")
     public WebElement menu;
     @FindBy(css = "a[href=\"/account/favorites\"]")
-    public WebElement myfavourite;
-    @FindBy(css = "p[data-test=\"product-description\"]")
+    public WebElement favourite;
+    @FindBy(xpath = "/html/body/app-root/div[2]/app-favorites/div/div/div")
     public WebElement sure;
 }

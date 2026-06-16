@@ -26,6 +26,9 @@ public class registerPage extends pageBase
     @FindBy(id = "postal_code")
     public WebElement PostalCode;
 
+    @FindBy(id = "house_number")
+    public WebElement HouseNumber;
+
     @FindBy(id = "city")
     public WebElement City;
 

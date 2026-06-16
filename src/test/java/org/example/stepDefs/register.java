@@ -1,5 +1,4 @@
 package org.example.stepDefs;
-
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -38,7 +37,7 @@ public class register {
 
     @And("user enter date of birth")
     public void userEnterDateOfBirth() {
-        reg.BirthDate.sendKeys("002001/01/01");
+        reg.BirthDate.sendKeys("2001-01-01");
 
 
     }
@@ -52,6 +51,11 @@ public class register {
     public void userEnterPostalCode() {
         reg.PostalCode.sendKeys("773612");
     }
+    @And("user enter house number")
+    public void userEnterHouseNumber() {
+    reg.HouseNumber.sendKeys("123");
+    }
+
 
     @And("user enter the city")
     public void userEnterTheCity() {
@@ -98,6 +102,4 @@ public class register {
         soft.assertEquals(actual,expected.toLowerCase());
         soft.assertAll();
     }
-
-
 }

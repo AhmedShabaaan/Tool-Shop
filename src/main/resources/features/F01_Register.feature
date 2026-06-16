@@ -8,6 +8,7 @@ Feature: testing registration functionality
     And user enter date of birth
     And user enter the street
     And user enter postal code
+    And user enter house number
     And user enter the city
     And  user enter the state
     And user select the country

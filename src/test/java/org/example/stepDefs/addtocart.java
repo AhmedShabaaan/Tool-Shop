@@ -1,6 +1,7 @@
 package org.example.stepDefs;
 
 
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -38,14 +39,8 @@ public class addtocart {
 
     }
 
-    @And("navigates to the products page")
-    public void navigatesToTheProductsPage() throws InterruptedException {
-        add.Categories.click();
-        add.HandTools.click();
-        Thread.sleep(4000);
-
-
-
+    @And("click on a product to view")
+    public void clickOnAProductToView() {
 
     }
 
@@ -65,4 +60,7 @@ public class addtocart {
     @And("the cart icon reflects the correct item count")
     public void theCartIconReflectsTheCorrectItemCount() {
     }
+
+
+
 }

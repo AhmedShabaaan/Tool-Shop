@@ -51,14 +51,14 @@ public class addtofavorite {
     @And("user click on my favourite")
     public void userClickOnMyFavourite() {
         favourite.menu.click();
-        favourite.myfavourite.click();
+        favourite.favourite.click();
     }
     @Then("the tool should be added to the user's favorites list")
     public void theToolShouldBeAddedToTheUserSFavoritesList() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement sure = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.cssSelector("p[data-test='product-description']")
+                By.xpath("/html/body/app-root/div[2]/app-favorites/div/div/div")
         ));
 
         String actual = sure.getText();

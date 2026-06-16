@@ -1,4 +1,4 @@
-@regrsesion
+@regression
 Feature: this feature could allow guest user to sign in to app
   @smoke
   Scenario: user login with valid data

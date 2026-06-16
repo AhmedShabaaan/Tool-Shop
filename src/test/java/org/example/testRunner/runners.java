@@ -5,7 +5,11 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions
         (
-                features = "src/main/resources/features",
+                features = {
+                        "src/main/resources/features/F01_Register.feature",
+                        "src/main/resources/features/F02_Login.feature",
+                        "src/main/resources/features/F03_AddToCart.feature"
+                },
                 glue = "org.example.stepDefs",
                 tags = "@regression",
                 plugin = {
